@@ -20,12 +20,12 @@ variable "resource_group_name" {
 
 variable "max_delivery_count" {
   type = "string"
-  description = "Subscription's maxium delivery count for messages"
+  description = "Maximum number of attempts to deliver a message before it's sent to dead letter queue"
   default = "10"
 }
 
 variable "lock_duration" {
   type = "string"
-  description = "Message lock duration"
-  default = "00:01:00"
+  description = "Message lock duration (ISO-8601)"
+  default = "PT1M"
 }
