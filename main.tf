@@ -1,9 +1,9 @@
-# ARM template for Service Bus topic
+# ARM template for Service Bus subscription
 data "template_file" "subscription_template" {
   template = "${file("${path.module}/template/subscription_template.json")}"
 }
 
-# Create Azure Service Bus topic
+# Create Azure Service Bus subscription
 resource "azurerm_template_deployment" "subscription" {
   template_body       = "${data.template_file.subscription_template.rendered}"
   name                = "${var.name}"
