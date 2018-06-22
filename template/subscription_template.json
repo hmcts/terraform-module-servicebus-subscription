@@ -51,5 +51,9 @@
         "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
       }
     }
+  ],
+  "dependsOn": [
+    "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]",
+    "[resourceId('Microsoft.ServiceBus/namespaces/topics', parameters('serviceBusTopicName'))]"
   ]
 }
