@@ -3,5 +3,5 @@ output "name" {
 }
 
 output "path" {
-  value = "${azurerm_template_deployment.subscription.parameters.serviceBusNamespaceName}/${azurerm_template_deployment.subscription.parameters.serviceBusTopicName}/${azurerm_template_deployment.subscription.parameters.serviceBusSubscriptionName}"
+  value = "${azurerm_template_deployment.subscription.outputs["resourceId"]}"
 }

@@ -52,5 +52,11 @@
         "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
       }
     }
-  ]
+  ],
+  "output": {
+    "resourceId": {
+      "value": "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', variables('subscriptionName'))]",
+      "type": "string"
+    }
+  }
 }
