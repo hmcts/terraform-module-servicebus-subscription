@@ -34,12 +34,13 @@
     }
   },
   "variables": {
-    "sbVersion": "2017-04-01"
+    "sbVersion": "2017-04-01",
+    "fullSubscriptionName": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('serviceBusTopicName'), '/', parameters('serviceBusSubscriptionName'))]"
   },
   "resources": [
     {
       "apiVersion": "2017-04-01",
-      "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('serviceBusTopicName'), '/', parameters('serviceBusSubscriptionName'))]",
+      "name": "[variables('fullSubscriptionName')]",
       "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
       "properties": {
         "lockDuration": "[parameters('lockDuration')]",
@@ -51,5 +52,11 @@
         "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
       }
     }
-  ]
+  ],
+  "output": {
+    "resourceId": {
+      "value": "[resourceId('Microsoft.ServiceBus/namespaces/topics/subscriptions', variables('fullSubscriptionName'))]",
+      "type": "string"
+    }
+  }
 }
