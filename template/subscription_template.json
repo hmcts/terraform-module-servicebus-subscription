@@ -52,22 +52,7 @@
     {
       "apiVersion": "2017-04-01",
       "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('serviceBusTopicName'), '/', parameters('serviceBusSubscriptionName'))]",
-      "condition": "[equals(parameters('forwardDeadLetteredMessagesTo'), 'UNDEFINED')]",
-      "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
-      "properties": {
-        "lockDuration": "[parameters('lockDuration')]",
-        "requiresSession": "false",
-        "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
-        "deadLetteringOnMessageExpiration": "true",
-        "maxDeliveryCount": "[parameters('maxDeliveryCount')]",
-        "enableBatchedOperations": "false",
-        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S"
-      }
-    },
-    {
-      "apiVersion": "2017-04-01",
-      "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('serviceBusTopicName'), '/', parameters('serviceBusSubscriptionName'))]",
-      "condition" : "[not(equals(parameters('forwardDeadLetteredMessagesTo'), 'UNDEFINED'))]",
+
       "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
       "properties": {
         "lockDuration": "[parameters('lockDuration')]",
@@ -77,7 +62,8 @@
         "maxDeliveryCount": "[parameters('maxDeliveryCount')]",
         "enableBatchedOperations": "false",
         "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
-        "forwardDeadLetteredMessagesTo" : "[parameters('forwardDeadLetteredMessagesTo')]"
+        "forwardTo" : "[if(empty(parameters('forwardTo')), json('null'), parameters('forwardTo'))]",
+        "forwardDeadLetteredMessagesTo" : "[if(empty(parameters('forwardDeadLetteredMessagesTo')), json('null'), parameters('forwardDeadLetteredMessagesTo'))]"
       }
     }
   ]

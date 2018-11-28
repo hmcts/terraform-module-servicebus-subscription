@@ -33,11 +33,9 @@ variable "lock_duration" {
 variable "forward_to" {
   type = "string"
   description = "Topic or Queue to forwards received messages to"
-  default = "UNDEFINED"
 }
 
 variable "forward_dead_lettered_messages_to" {
   type = "string"
   description = "Topic or Queue to forwards dead lettered messages to"
-  default = "UNDEFINED"
 }
