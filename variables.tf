@@ -29,3 +29,15 @@ variable "lock_duration" {
   description = "Message lock duration (ISO-8601)"
   default = "PT1M"
 }
+
+variable "forward_to" {
+  type = "string"
+  description = "Topic or Queue to forwards received messages to"
+  default = ""
+}
+
+variable "forward_dead_lettered_messages_to" {
+  type = "string"
+  description = "Topic or Queue to forwards dead lettered messages to"
+  default = ""
+}
