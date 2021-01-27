@@ -41,3 +41,9 @@ variable "forward_dead_lettered_messages_to" {
   description = "Topic or Queue to forwards dead lettered messages to"
   default = ""
 }
+
+variable "requires_session" {
+  type        = boolean
+  description = "A value that indicates whether the queue supports the concept of sessions"
+  default     = false
+}
