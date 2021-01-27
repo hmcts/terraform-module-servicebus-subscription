@@ -43,7 +43,7 @@ variable "forward_dead_lettered_messages_to" {
 }
 
 variable "requires_session" {
-  type        = boolean
+  type        = bool
   description = "A value that indicates whether the queue supports the concept of sessions"
   default     = false
 }
