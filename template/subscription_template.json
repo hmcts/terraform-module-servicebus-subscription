@@ -45,7 +45,7 @@
       }
     },
     "requiresSession": {
-      "type": "bool",
+      "type": "string",
       "metadata": {
         "description": "A value that indicates whether the queue supports the concept of sessions"
       }
@@ -61,7 +61,7 @@
       "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
       "properties": {
         "lockDuration": "[parameters('lockDuration')]",
-        "requiresSession": "[bool(parameters('requiresSession'))]",
+        "requiresSession": "[parameters('requiresSession')]",
         "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
         "deadLetteringOnMessageExpiration": "true",
         "maxDeliveryCount": "[parameters('maxDeliveryCount')]",
