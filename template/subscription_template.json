@@ -43,6 +43,12 @@
       "metadata": {
         "description": "Topic or Queue to forwards dead lettered messages to"
       }
+    },
+    "requiresSession": {
+      "type": "bool",
+      "metadata": {
+        "description": "A value that indicates whether the queue supports the concept of sessions"
+      }
     }
   },
   "variables": {
