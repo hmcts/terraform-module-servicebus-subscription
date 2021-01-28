@@ -61,7 +61,7 @@
       "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
       "properties": {
         "lockDuration": "[parameters('lockDuration')]",
-        "requiresSession": "[parameters('requiresSession')]",
+        "requiresSession": "[bool(parameters('requiresSession'))]",
         "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
         "deadLetteringOnMessageExpiration": "true",
         "maxDeliveryCount": "[parameters('maxDeliveryCount')]",
