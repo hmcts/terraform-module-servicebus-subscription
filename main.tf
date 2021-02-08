@@ -15,5 +15,4 @@ resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   enable_batched_operations            = false
   default_message_ttl                  = "P10675199DT2H48M5.4775807S"
   auto_delete_on_idle                  = "P10675199DT2H48M5.4775807S"
-
 }
