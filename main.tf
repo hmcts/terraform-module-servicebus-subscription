@@ -18,5 +18,6 @@ resource "azurerm_template_deployment" "subscription" {
     maxDeliveryCount              = "${var.max_delivery_count}"
     forwardTo                     = "${var.forward_to}"
     forwardDeadLetteredMessagesTo = "${var.forward_dead_lettered_messages_to}"
+    requiresSession               = "${var.requires_session}"
   }
 }
