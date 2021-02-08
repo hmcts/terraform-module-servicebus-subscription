@@ -47,4 +47,3 @@ variable "requires_session" {
   description = "A value that indicates whether the queue supports the concept of sessions"
   default     = false
 }
-

@@ -8,6 +8,7 @@ resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   max_delivery_count                = var.max_delivery_count
   forward_to                        = var.forward_to
   forward_dead_lettered_messages_to = var.forward_dead_lettered_messages_to
+  requiresSession                   = var.requires_session
 
   requires_session                     = var.requires_session
   dead_lettering_on_message_expiration = true
