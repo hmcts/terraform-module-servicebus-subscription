@@ -1,13 +1,13 @@
 # terraform-module-servicebus-subscription
 
 A Terraform module for creating Azure Service Bus subscription
-Refer to the following link for a detailed explanation of the Azure Service Bus topic.
+Refer to the following link for a detailed explanation of the Azure Service Bus subscription.
 
 [Azure Service Bus Subscription](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) <br />
 
 ## Usage
 
-The following example shows how to use the module to create an Azure Service Bus topic. 
+The following example shows how to use the module to create an Azure Service Bus subscription. 
 
 ```terraform
 module "servicebus-subscription" {
@@ -27,7 +27,7 @@ The following parameters are required by this module
 
 - `name` the name of the ServiceBus namespace.
 - `resource_group_name` the name of the resource group in which to create the ServiceBus namespace.
-- `namespace_name` the name of the service bus namespace in which the topic must be created.
+- `namespace_name` the name of the service bus namespace in which the subscription must be created.
 - `topic_name` the name of the service bus topic in which the subscription must be created.
 
 The following parameters are optional
