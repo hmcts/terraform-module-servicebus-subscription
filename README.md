@@ -3,7 +3,7 @@
 A Terraform module for creating Azure Service Bus subscription
 Refer to the following link for a detailed explanation of the Azure Service Bus subscription.
 
-[Azure Service Bus Subscription](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions) <br />
+[Azure Service Bus Subscription](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)
 
 ## Usage
 
@@ -12,10 +12,10 @@ The following example shows how to use the module to create an Azure Service Bus
 ```terraform
 module "servicebus-subscription" {
   source                = "git@github.com:hmcts/terraform-module-servicebus-subscription?ref=servicebus_subscription_tf"
-  name                  = local.subscription_name
+  name                  = "your-subscription"
   namespace_name        = module.servicebus-namespace.name
   topic_name            = module.servicebus-topic.name
-  resource_group_name   = local.resource_group_name
+  resource_group_name   = azurerm_resource_group.rg.name
 }
 ```
 
