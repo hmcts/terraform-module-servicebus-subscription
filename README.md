@@ -11,7 +11,7 @@ The following example shows how to use the module to create an Azure Service Bus
 
 ```terraform
 module "servicebus-subscription" {
-  source                = "git@github.com:hmcts/terraform-module-servicebus-subscription?ref=servicebus_subscription_tf"
+  source                = "git@github.com:hmcts/terraform-module-servicebus-subscription?ref=master"
   name                  = "your-subscription"
   namespace_name        = module.servicebus-namespace.name
   topic_name            = module.servicebus-topic.name
