@@ -1,45 +1,45 @@
 variable "name" {
-  type = "string"
+  type        = string
   description = "Azure Service Bus subscription name"
 }
 
 variable "namespace_name" {
-  type = "string"
+  type        = string
   description = "Azure Service Bus namespace"
 }
 
 variable "topic_name" {
-  type = "string"
+  type        = string
   description = "Azure Service Bus topic name"
 }
 
 variable "resource_group_name" {
-  type = "string"
+  type        = string
   description = "Resource group in which the Service Bus subscription should exist"
 }
 
 variable "max_delivery_count" {
-  type = "string"
+  type        = number
   description = "Maximum number of attempts to deliver a message before it's sent to dead letter queue"
-  default = "10"
+  default     = 10
 }
 
 variable "lock_duration" {
-  type = "string"
+  type        = string
   description = "Message lock duration (ISO-8601)"
-  default = "PT1M"
+  default     = "PT1M"
 }
 
 variable "forward_to" {
-  type = "string"
+  type        = string
   description = "Topic or Queue to forwards received messages to"
-  default = ""
+  default     = ""
 }
 
 variable "forward_dead_lettered_messages_to" {
-  type = "string"
+  type        = string
   description = "Topic or Queue to forwards dead lettered messages to"
-  default = ""
+  default     = ""
 }
 
 variable "requires_session" {
