@@ -5,8 +5,8 @@ data "azurerm_servicebus_topic" "this" {
 }
 
 resource "azurerm_servicebus_subscription" "servicebus_subscription" {
-  name                = var.name
-  topic_id            = data.azurerm_servicebus_topic.this.id
+  name     = var.name
+  topic_id = data.azurerm_servicebus_topic.this.id
 
   lock_duration                     = var.lock_duration
   max_delivery_count                = var.max_delivery_count
