@@ -1,6 +1,6 @@
 # ARM template for Service Bus subscription
 data "template_file" "subscription_template" {
-  template = "${file("${path.module}/template/subscription_template.json")}"
+  template = file("${path.module}/template/subscription_template.json")
 }
 
 # Create Azure Service Bus subscription
