@@ -47,3 +47,30 @@ variable "requires_session" {
   description = "A value that indicates whether the queue supports the concept of sessions"
   default     = false
 }
+
+variable "create_managed_identity" {
+  default = false
+}
+
+variable "product" {
+  description = "(Required) The name of your application"
+}
+
+variable "env" {
+  description = "(Required)"
+}
+
+variable "location" {
+  default     = "UK South"
+  description = "The name of the Azure region to deploy your vault to. Please use the default by not passing this parameter unless instructed otherwise."
+}
+
+variable "managed_identity_object_ids" {
+  type    = list(string)
+  default = []
+}
+
+variable "managed_identity_object_id" {
+  default     = ""
+  description = "the object id of the managed identity - can be retrieved with az identity show --name <identity-name>-sandbox-mi -g managed-identities-<env>-rg --subscription DCD-CFTAPPS-<env> --query principalId -o tsv"
+}
