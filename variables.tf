@@ -53,10 +53,12 @@ variable "create_managed_identity" {
 }
 
 variable "product" {
+  default     = null
   description = "(Required) The name of your application"
 }
 
 variable "env" {
+  default     = null
   description = "(Required)"
 }
 
