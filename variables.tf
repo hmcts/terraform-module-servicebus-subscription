@@ -48,11 +48,6 @@ variable "requires_session" {
   default     = false
 }
 
-variable "location" {
-  default     = "UK South"
-  description = "The name of the Azure region to deploy your vault to. Please use the default by not passing this parameter unless instructed otherwise."
-}
-
 variable "managed_identity_object_ids" {
   type    = list(string)
   default = []
