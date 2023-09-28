@@ -53,5 +53,3 @@ module "servicebus-subscription" {
   managed_identity_object_id = "your-mi-object-id"
 }
 ```
-
-You can also give access to an array of Managed Identities using the `managed_identity_object_ids` variable.

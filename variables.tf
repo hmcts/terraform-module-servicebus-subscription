@@ -48,12 +48,7 @@ variable "requires_session" {
   default     = false
 }
 
-variable "managed_identity_object_ids" {
-  type    = list(string)
-  default = []
-}
-
 variable "managed_identity_object_id" {
-  default     = ""
+  default     = null
   description = "the object id of the managed identity - can be retrieved with az identity show --name <identity-name>-sandbox-mi -g managed-identities-<env>-rg --subscription DCD-CFTAPPS-<env> --query principalId -o tsv"
 }
