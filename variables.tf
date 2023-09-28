@@ -48,20 +48,6 @@ variable "requires_session" {
   default     = false
 }
 
-variable "create_managed_identity" {
-  default = false
-}
-
-variable "product" {
-  default     = null
-  description = "(Required) The name of your application"
-}
-
-variable "env" {
-  default     = null
-  description = "(Required)"
-}
-
 variable "location" {
   default     = "UK South"
   description = "The name of the Azure region to deploy your vault to. Please use the default by not passing this parameter unless instructed otherwise."
