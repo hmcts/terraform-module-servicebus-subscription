@@ -36,3 +36,20 @@ The following parameters are optional
 - `lock_duration` the lock duration for the subscription as an ISO 8601 duration. Default is PT1M.
 - `forward_to` the name of a Queue or Topic to automatically forward messages to.
 - `forward_dead_lettered_messages_to` the name of a Queue or Topic to automatically forward Dead Letter messages to.
+
+## Managed Identity Role Assignment
+
+The following example shows how to give read access to a user assigned managed identity for the subscription:
+
+```terraform
+module "servicebus-subscription" {
+  source                     = "git@github.com:hmcts/terraform-module-servicebus-subscription?ref=master"
+  name                       = "your-subscription"
+  namespace_name             = module.servicebus-namespace.name
+  topic_name                 = module.servicebus-topic.name
+  resource_group_name        = azurerm_resource_group.rg.name
+
+  # this variable is required
+  managed_identity_object_id = "your-mi-object-id"
+}
+```
