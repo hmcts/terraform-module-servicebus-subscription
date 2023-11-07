@@ -21,7 +21,7 @@ module "servicebus-subscription" {
 
 ## azurerm_servicebus_subscription_rule
 
-The following example shows how to give read access to a user assigned managed identity for the subscription:
+The following example shows how to add azurerm_servicebus_subscription_rule:
 
 ```terraform
 locals {
