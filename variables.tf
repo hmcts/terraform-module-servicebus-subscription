@@ -55,7 +55,7 @@ variable "managed_identity_object_id" {
 
 variable "sql_filters" {
   type = map(object({
-    content_type = optional(string)
+    sql_filter = optional(string)
   }))
   description = "A map of sql filters"
   default     = {}
