@@ -21,7 +21,7 @@ module "servicebus-subscription" {
 
 ## azurerm_servicebus_subscription_rule
 
-The following example shows how to add azurerm_servicebus_subscription_rule:
+The following example shows how to add a servicebus subscription rule:
 
 ```terraform
 locals {
