@@ -19,3 +19,33 @@ resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   default_message_ttl                  = "P10675199DT2H48M5.4775807S"
   auto_delete_on_idle                  = "P10675199DT2H48M5.4775807S"
 }
+
+resource "azurerm_servicebus_subscription_rule" "sql_filter_rule" {
+  for_each        = var.sql_filters
+  name            = each.key
+  subscription_id = azurerm_servicebus_subscription.servicebus_subscription.id
+  filter_type     = "SqlFilter"
+  sql_filter      = lookup(each.value, "sql_filter", null)
+
+}
+
+resource "azurerm_servicebus_subscription_rule" "correlation_filter_rules" {
+  for_each = var.correlation_filters
+
+  name        = each.key
+  filter_type = "CorrelationFilter"
+
+  subscription_id = azurerm_servicebus_subscription.servicebus_subscription.id
+
+  correlation_filter {
+    content_type        = lookup(each.value, "content_type", null)
+    correlation_id      = lookup(each.value, "correlation_id", null)
+    label               = lookup(each.value, "label", null)
+    message_id          = lookup(each.value, "message_id", null)
+    reply_to            = lookup(each.value, "reply_to", null)
+    reply_to_session_id = lookup(each.value, "reply_to_session_id", null)
+    session_id          = lookup(each.value, "session_id", null)
+    to                  = lookup(each.value, "to", null)
+    properties          = lookup(each.value, "properties", null)
+  }
+}
