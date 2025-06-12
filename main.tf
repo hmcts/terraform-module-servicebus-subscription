@@ -1,7 +1,13 @@
+data "azurerm_servicebus_namespace" "this" {
+  name                = var.namespace_name
+  resource_group_name = var.resource_group_name
+}
+
+
 data "azurerm_servicebus_topic" "this" {
   name                = var.topic_name
   resource_group_name = var.resource_group_name
-  namespace_id        = var.namespace_id
+  namespace_id        = data.azurerm_servicebus_namespace.this.id
 }
 
 resource "azurerm_servicebus_subscription" "servicebus_subscription" {
