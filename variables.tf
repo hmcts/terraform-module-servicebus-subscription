@@ -6,6 +6,7 @@ variable "name" {
 variable "namespace_id" {
   type        = string
   description = "Azure Service Bus namespace id"
+  default     = null
 }
 
 variable "namespace_name" {
