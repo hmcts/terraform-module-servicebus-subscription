@@ -9,7 +9,7 @@ variable "namespace_name" {
 }
 
 variable "topic_name" {
-  type        = optional(string)
+  type        = string
   description = "Azure Service Bus topic name"
 }
 
