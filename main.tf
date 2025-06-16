@@ -1,10 +1,12 @@
 data "azurerm_servicebus_namespace" "this" {
+  count               = var.topic_name == null ? 0 : 1
   name                = var.namespace_name
   resource_group_name = var.resource_group_name
 }
 
 
 data "azurerm_servicebus_topic" "this" {
+  count               = var.topic_name == null ? 0 : 1
   name                = var.topic_name
   resource_group_name = var.resource_group_name
   namespace_id        = data.azurerm_servicebus_namespace.this.id
@@ -12,7 +14,7 @@ data "azurerm_servicebus_topic" "this" {
 
 resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   name     = var.name
-  topic_id = data.azurerm_servicebus_topic.this.id
+  topic_id = var.topic_name == null ? data.azurerm_servicebus_topic.this.id : var.topic_id
 
   lock_duration                     = var.lock_duration
   max_delivery_count                = var.max_delivery_count

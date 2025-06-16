@@ -13,6 +13,12 @@ variable "topic_name" {
   description = "Azure Service Bus topic name"
 }
 
+variable "topic_id" {
+  type        = string
+  description = "Azure Service Bus topic ID. If provided, it will be used instead of topic_name"
+  default     = null
+}
+
 variable "resource_group_name" {
   type        = string
   description = "Resource group in which the Service Bus subscription should exist"
