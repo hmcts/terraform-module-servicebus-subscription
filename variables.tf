@@ -12,6 +12,7 @@ variable "namespace_id" {
 variable "namespace_name" {
   type        = string
   description = "Azure Service Bus namespace name"
+  default     = null
 }
 
 variable "topic_name" {
