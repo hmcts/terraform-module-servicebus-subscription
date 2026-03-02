@@ -10,7 +10,25 @@ variable "namespace_name" {
 
 variable "topic_name" {
   type        = string
-  description = "Azure Service Bus topic name"
+  default     = null
+  description = "Azure Service Bus topic name (required when use_topic_id is false)"
+
+  validation {
+    condition     = var.use_topic_id || var.topic_name != null
+    error_message = "Either use_topic_id must be true (with topic_id set) or topic_name must be set."
+  }
+}
+
+variable "topic_id" {
+  type        = string
+  default     = null
+  description = "Azure Service Bus topic resource ID. When provided, topic_name/namespace_name/resource_group_name are not used for the subscription resource."
+}
+
+variable "use_topic_id" {
+  type        = bool
+  default     = false
+  description = "When true, topic_id is used instead of topic_name/namespace_name/resource_group_name."
 }
 
 variable "resource_group_name" {

@@ -1,12 +1,17 @@
 data "azurerm_servicebus_topic" "this" {
+  count               = var.use_topic_id ? 0 : 1
   name                = var.topic_name
   resource_group_name = var.resource_group_name
   namespace_name      = var.namespace_name
 }
 
+locals {
+  subscription_topic_id = var.use_topic_id ? var.topic_id : data.azurerm_servicebus_topic.this[0].id
+}
+
 resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   name     = var.name
-  topic_id = data.azurerm_servicebus_topic.this.id
+  topic_id = local.subscription_topic_id
 
   lock_duration                     = var.lock_duration
   max_delivery_count                = var.max_delivery_count
