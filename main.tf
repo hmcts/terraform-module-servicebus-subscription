@@ -14,7 +14,7 @@ resource "azurerm_servicebus_subscription" "servicebus_subscription" {
   forward_dead_lettered_messages_to = var.forward_dead_lettered_messages_to
 
   requires_session                     = var.requires_session
-  dead_lettering_on_message_expiration = true
+  dead_lettering_on_message_expiration = var.dead_lettering_on_message_expiration
   batched_operations_enabled           = false
   default_message_ttl                  = "P10675199DT2H48M5.4775807S"
   auto_delete_on_idle                  = "P10675199DT2H48M5.4775807S"
