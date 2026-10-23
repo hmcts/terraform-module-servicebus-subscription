@@ -25,7 +25,9 @@ variable "max_delivery_count" {
   description = "Maximum number of attempts to deliver a message before it's sent to dead letter queue"
   default     = 10
 }
-
+variable "dead_lettering_on_message_expiration" {
+  default = true
+}
 variable "lock_duration" {
   type        = string
   description = "Message lock duration (ISO-8601)"
